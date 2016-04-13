@@ -35,9 +35,45 @@
 		
 	</header>
 		<nav>
-			
+			<ul class="menu">
+				<li><a href="#">Python</a></li>
+				<li><a href="#">HTML5</a></li>
+				<li><a href="#">JavaScript</a></li>
+				<li><a href="#">CSS3</a></li>
+				<li><a href="#">Django</a></li>
+			</ul>
 		</nav>
-	<section>
+	<!--section es el espacio donde van los artículos-->
+	<section class="posts">
+		<!--cada article es un DPO-->
+		<article class="post">
+			<!--tenemos 2 secciones: la parte de arriba que es la imagen y la descripción del objeto y la de abajo que son las acciones-->
+			<div class="descripcion"> 
+				<figure class="imagen">
+					<img src="imagenes/foto.jpg"/>
+				</figure>
+				<div class="detalles">
+					<h2 class="titulo">
+							Módulo de usuario (V): Lista y paginación con Laravel
+					</h2>
+					<p class=autor">
+							por <a href="#">Javier Córdoba</a> </p>
+					<a class="tag">PHP</a>
+					<p class="fecha">hace <strong>20 min</strong></p>
+				</div>
+			</div>
+			<!--acciones tiene un área de votación, nº de votos y una estrellita-->
+			<div class="acciones">
+				<div class="votos">
+					<a class="up" href="#">U</a>
+					<span class="total">155</span>
+					<a class="down" href="#">D</a>
+				</div>
+				
+
+			</div>
+
+		</article>
 		
 	</section>
 	<footer>
