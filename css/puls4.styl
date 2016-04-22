@@ -1,34 +1,301 @@
 gris_oscuro = #444
 azul = #22BCE0
+naranja = #DD4F24
+gris_texto = 7A7A7A
+
+/*font-face determina como agregar un atipografía. Se ha cogido del archivo de fuentes para las flechas 
+estrella y pluma (4 ficheros), descargado de https://icomoon.io/app/#/select/font
+las fuentes se ponen en la carpeta font y del fichero Style copy and paste 
+esta parte. Modificamos el nombre de la familia y la ruta de las carpetas.
+Como los iconos no están en la carpeta raiz, sino en la CSS, hay que añadir un nivel, poniendo
+../ 
+Los códigos de los iconos están en el fichero Style y los copiamos de allí. 
+Son así... "\e900", "\e901",... que se añaden al código con pseudoelementos
+after y before */
+@font-face {
+    font-family: 'iconitos';
+    src:    url('../fonts/icomoon.eot?kvd36c');
+    src:    url('../fonts/icomoon.eot?kvd36c#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?kvd36c') format('truetype'),
+        url('../fonts/icomoon.woff?kvd36c') format('woff'),
+        url('../fonts/icomoon.svg?kvd36c#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a 
+	/*todas las variables son naranja*/
+	color naranja
 body
 	background #E8E8E8
 	color gris_oscuro
 	font-family Arial
 	font-size 16px
 
+footer
+	background naranja
+	color rgba(white,0.5)
+	padding 0.5em 0
+	text-align center
+	width 100%
+	
+	h3
+		font-size 14px
+		font-weight normal
+		
+		strong
+			display block
+		
+		.mejor
+			&:before
+			&:after
+				content " - "
+
 header
 	background gris_oscuro
 	color white
+	/*sombra del navegador*/
+	box-shadow 0 5px 0 rgba(0,0,0,0.2)
+	z-index 1
+	/*fin sombra*/
+	/*Cuando se tienen elementos flotantes al cambiar el ancho
+	del navegador se pueden salir de la zona; overflow hidden 
+	hace que se cree una caja que contenga a todos los flotantes
+	y que queden dentro.*/
+	overflow hidden
 	padding 0.5em
+	position relative
 
 	.logo
 		border-right 1px solid azul
 		width 60px
+		float left
 		img
 			width 52px
 	.titular
-		margin 0 80px 0 70px
+		margin 0 70px 0 70px
+		.filtro
+			color azul
+			font-size 14px
+			font-style italic
+			font-weight bold
+			text-decoration none /*quita el subrayado*/
+		.publicar
+			background naranja
+			float right /*lo manda a la derecha*/
+			color white
+			font-size italic
+			margin -5px 1em 0 0
+			padding 0.2em 0.5em
+			text-decoration none
+			/*text-shadow pone sombra al texto: mover sombra en x, 
+			mover sombra en y, difuminación de la sombra, color sombra*/
+			text-shadow 1px 1px 0px black
+			
+			&:before
+				display inline-block /*para poder añadir un margen */
+				font-family "iconitos"
+				content "\e902"
+				margin 0 3px 0 0
+			
 		.titulo
 			font-size 18px
 			font-weight normal
 			margin 0
 			padding 0
+/*50% es lo que hace que el avatar se vuelva redondeado*/
+	.usuario
+		position absolute
+		right 10px	
+		top 0px	
+		
+		.avatar
+			margin 0 1.1em 0 0
+			position relative
+			/*z-index=2 pone la foto en primer plano*/
+			z-index 2
+			img
+				width 50px
+				border-radius 50%
+				
+		.flechita
+			background naranja
+			color white
+			font-size 12px
+			display block
+			padding 2px
+			position absolute
+			top 15px
+			right 0px		
+			text-align right
+			width 50%
+			z-index 0
+			text-decoration none
+			
+			&:after
+				font-family "iconitos"
+				content "\e900" /*flechita al lado de avatar usuario*/
+				text-shadow 1px 1px 0px black /*derecha, abajo, difuminación y color*/
+				
+nav
+	background azul
+	/* diseño de la barra de menú sin usar imágenes*/
+	border-left 15px solid white
+	position relative
+	/* diseño de la barra de menú sin usar imágenes. Usamos SHADOW DOM. Se usa before y 
+	after después de la etiqueta y son objetos que insertamos y que no podemos manipular 
+	como calendarios... Se ñanaden al HTML y no aparecen en inspect element del navegador 
+	Before y after exigen que se coloque un content para hacerle algo*/
+	&:before
+		border-bottom 20px solid transparent
+		border-left 7px solid white
+		border-top 20px solid transparent
+		left 0
+		content ""
+		position absolute
+		top 0
 
+	.menu
+		height 40px
+		line-height 40px
+		margin 0
+		padding 0
+		/* hace que la barra de navegación no desborde: se crea un scroll horizontal */
+		overflow-x auto
+		white-space nowrap
+		li
+			/* romper la lista para que se vuelva barra de navegación */
+			display inline-block
+			a
+				color white
+				display block
+				margin 0 0.5em
+				padding 0 0.2em
+				text-decoration none
+.posts
+	padding 0.5em
+	
+	.post
+		background white
+		color gris_texto
+		/*dibujo la caja*/
+		box-shadow 2px 2px 10px rgba(black, 0.5)
+		border-radius 0 0 0.5em 0.5em
+		margin-bottom 0.5em /*distancia entre cajitas*/
+		
+		.acciones
+			border-top 3px solid azul
+			padding 0.5em
+			overflow hidden /*evito que me corte la caja el texto*/
+			
+			.datos
+				float right
+				
+				.comentarios
+					background gris_oscuro
+					border-radius 3px
+					color white
+					margin 0 1em 0 0 /*para separarlo de la estrellita*/
+					padding 2px 5px
+					text-decoration none
+					
+				.estrellita
+					text-decoration none
+					&:after
+						font-family "iconitos"
+						color #E0D561
+						content: "\e903"
+				
+			.votos
+				float left
+				.down /*al colocarlos pegados hacemos herencia*/
+				.up
+					text-decoration none
+				.up
+					color green
+					&:before
+						font-family "iconitos"
+						font-size 1.5em
+						content "\e901"
+						vertical-align bottom
+				.down
+					color red
+					&:before
+						font-family "iconitos"
+						font-size 1.5em
+						content "\e900"
+						vertical-align bottom
+		
+		.descripcion
+			color gris_texto
+			
+			.autor
+				margin 0.5em 0 2em 0
+			
+			.fecha
+				float right
+				margin 0 1em 0 0
+				
+				
+			.tag
+				background azul
+				border-radius 0.5em
+				color white
+				text-decoration none
+				padding 0.2em 0.5em /*arriba y abajo 0.2, izq y der 0.5*/
+			
+			.detalles
+				height 160px
+				margin-left 130px /*tamaño de la foto + 10*/
+			
+			.titulo
+				color gris_oscuro
+				font-size 18px
+				font-style italic
+				margin 0 /*se pega la caja al menú*/
+				padding 0.5em 0.5em 0 0
 
-.left
-	float left
-.right 
-	float right
+			
+			.imagen
+				float left
+				margin 0
+				img
+					height 160px
+					width 120px
+					vertical-align top
+
+/*Vamos a aplicar Responsive Design con Media Queries (son instrucciones que
+permiten poner condiciones, pe, si el tamaño de pantalla es X entonces...
+screen marca condiciones de pantalla. print de impresión
+display inline-block hace que salgan 2 columnas
+&:nth-child(odd) es un pseudoelemento que afecta a los impares (ood) o pares (even)
+En header cambiamos el tamaño de la caja de la pluma
+*/		
+@media screen and (min-width: 768px)
+	body
+		background grey
+	
+	header
+		.titular
+			.publicar
+				padding-left 3em
+				position relative
+				
+				&:before
+					color green
+					left 0px
+					font-size 2em
+					position absolute		
+					top -9px
+	
+	.posts
+		.post
+			display inline-block
+			width 48%
+			vertical-align top
+			&:nth-child(odd)
+				margin-right 2%
+		
 
 
 
