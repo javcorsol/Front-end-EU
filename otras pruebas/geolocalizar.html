@@ -1,0 +1,38 @@
+<!doctype html>
+<header>
+	<title>Geolocalizar de Javi</title>
+	<meta charset="utf-8">
+
+	 <script type="text/javascript">
+      var lat, lon, velocidad, vector;
+      $(document).on("ready", inicio);
+      function inicio() {
+              geolocalizar();
+      }
+      function geolocalizar(){
+              navigator.geolocation.getCurrentPosition(mostrar, CorrerEnCirculos);
+      }
+      function CorrerEnCirculos(errorsh){
+              alert("Te encontrare muy pronto")
+              console.log(errorsh)
+      }
+      function mostrar(geo){
+              lat             = geo.coords.latitude;
+              lon             = geo.coords.longitude;
+              velocidad       = geo.coords.speed;
+              vector          = geo.coords.heading;
+              document.write ('Latitud: ', lat, "<br />");
+              document.write ('Longitud: ', lon, "<br />");
+              document.write ('Velocidad: ', velocidad, "<br />");
+              document.write ('Vector: ', vector);
+      }
+      </script>
+
+</header>
+<body>
+	
+</body>
+<footer>
+	
+
+</footer>

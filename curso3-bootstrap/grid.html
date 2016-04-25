@@ -1,0 +1,44 @@
+<!doctype>
+<header>
+	<meta charset="utf-8">
+	<!--se activa con meta:vp (y te escribe toda la etiqueta). Se usa para móviles y todo tipo de resolución-->
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<!--cargamos Bootstrap, es el fichero de la carpeta css que hemos bajado de la web de bootstrap-->
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="grid.css">
+
+	<title>Ejemplo con grids</title>
+</header>
+<body>
+	<!--Resoluciones de las 12 columnas de bootstrap
+	large > 1200px / medium md (1200,900)px, small sm (900,768)px y extrasmall xs (768,480)px
+	-->
+
+	<h3>Ejemplo de tools de visualización</h3>
+	<!--Muestra texto en base a la resolución de la pantalla-->
+	<h4 class="visible-lg">Desktop Large (LG)</h4>
+	<h4 class="visible-md">Desktop medium (MD)</h4>
+	<h4 class="visible-sm">Tablets (SM)</h4>
+	<h4 class="visible-xs">Phones (XS)</h4>
+	<!--Estamos diciendo que dividimos en 4 áreas, cada una con 3 columnas (12 en total) para una resolución md (se comporta siempre así y cuando pasa a tamaño pequeño las columnas cambian)-->
+	<!--Para large ocupan 3 columnas y para sm 6 lugares cada una-->
+	<div class="contenedor row">
+		<div class="col col-lg-3 col-sm-6">Columna 1</div>
+		<div class="col col-lg-3 col-sm-6">Columna 2</div>
+		<div class="col col-lg-3 col-sm-6">Columna 3</div>
+		<div class="col col-lg-3 col-sm-6">Columna 4</div>
+	</div>
+	
+	<div class="contenedor row">
+		<div class="col col-xs-8"> <!-- Significa que esta sección ocupa 8 columnas proporcionalmente hasta xs (es decir: siempre)-->
+		Esta columna siempre ocupa 8.
+		<!-- Hasta sm hay 2 columnas, cada una de 6 columnas. Cuando llega a xm cambia a 1-->
+		<div class="row contenedor">
+			<div class="col col-sm-6">Una columna</div>
+			<div class="col col-sm-6">Una columna</div>
+		</div>
+	</div>
+	
+
+
+</body>
