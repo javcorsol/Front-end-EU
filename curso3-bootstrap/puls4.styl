@@ -1,0 +1,59 @@
+gris-oscuro = #444
+gris-claro = lighten(gris-oscuro, 40%)
+
+footer
+	background-color gris-claro
+	color white
+	padding 0.5em
+
+header
+	background-color gris-oscuro
+	color white
+	padding 1em
+	
+	h1
+		font-size 18px
+		font-weight normal
+		padding 0
+		margin 0
+	
+	.logo figure
+		border 1px dashed invert(gris-oscuro) /*dashed hace el punteado, Invert da el color que más contrasta respecto al que le pasamos de parámetro.*/
+		width 52px
+		height 52px
+	
+	.usuario	
+		.avatar
+			border 1px dashed invert(gris-oscuro)
+			border-radius 50%
+			height 50px
+			width 50px
+			
+section
+	padding 1.2em
+		
+	article
+		border 1px solid gris-claro
+		border-bottom-left-radius 0.8em		
+		border-bottom-right-radius 0.8em	
+		margin-bottom 1.2em
+		overflow hidden /* oculta todo lo que sobrepase la caja*/
+		
+		figure
+			background-color gris-claro
+			height 160px
+			width 120px
+		
+		h2
+			font-size 18px
+			color gris-oscuro
+		
+		.acciones
+			border-top 3px solid gris-claro
+			min-height 3em
+			padding 0.8em
+		
+		.fecha
+			position relative
+			right 20px
+				
